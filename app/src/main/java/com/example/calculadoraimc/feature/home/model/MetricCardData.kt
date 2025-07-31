@@ -23,7 +23,7 @@ sealed class MetricCardData(
     data class Height(override val value: Float) : MetricCardData(
         title = "Altura",
         unitMeasure = "m",
-        icon = IconUse.Painter(R.drawable.weight_24px),
+        icon = IconUse.Vector(Icons.Rounded.Height),
         value = value,
         color = GreenColor
     )
@@ -31,7 +31,7 @@ sealed class MetricCardData(
     data class Weight(override val value: Float) : MetricCardData(
         title = "Peso",
         unitMeasure = "kg",
-        icon = IconUse.Vector(Icons.Rounded.Height),
+        icon = IconUse.Painter(R.drawable.weight_24px),
         value = value,
         color = YellowColor
     )

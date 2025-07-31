@@ -36,11 +36,11 @@ fun Home() {
             ) {
                 MetricCard(
                     Modifier.weight(1f),
-                    type = MetricCardData.Height(3f),
+                    metrics = MetricCardData.Height(3f),
                 )
                 MetricCard(
                     Modifier.weight(1f),
-                    type = MetricCardData.Weight(5f),
+                    metrics = MetricCardData.Weight(5f),
                 )
             }
         }

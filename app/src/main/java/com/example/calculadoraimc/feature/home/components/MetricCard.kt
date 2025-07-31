@@ -27,20 +27,20 @@ import com.example.calculadoraimc.ui.theme.GreyColor
 @Composable
 fun MetricCard(
     modifier: Modifier = Modifier,
-    type: MetricCardData
+    metrics: MetricCardData
 ) {
 
     // Calculo do valor a ser mostrado
-    val valueCard = when (type) {
-        is MetricCardData.Height -> (type.value / 100)
-        is MetricCardData.Weight -> type.value
+    val valueCard = when (metrics) {
+        is MetricCardData.Height -> (metrics.value / 100)
+        is MetricCardData.Weight -> metrics.value
     }
 
 
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = type.color
+            containerColor = metrics.color
         )
     ) {
         Column(
@@ -55,11 +55,11 @@ fun MetricCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = type.title
+                    text = metrics.title
                 )
 
                 IconTag(
-                    icon = useIcon(type.icon),
+                    icon = useIcon(metrics.icon),
                     contentDescription = "Icone do cara para peso."
                 )
             }
@@ -79,7 +79,7 @@ fun MetricCard(
                 Spacer(Modifier.width(2.dp))
 
                 Text(
-                    text = type.unitMeasure,
+                    text = metrics.unitMeasure,
                     modifier = Modifier.padding(bottom = 4.dp),
                     color = Color(132, 132, 132, 255)
                 )
@@ -100,11 +100,11 @@ private fun MetricCardPreview() {
         ) {
             MetricCard(
                 Modifier.weight(1f),
-                type = MetricCardData.Height(3f),
+                metrics = MetricCardData.Height(3f),
             )
             MetricCard(
                 Modifier.weight(1f),
-                type = MetricCardData.Weight(5f),
+                metrics = MetricCardData.Weight(5f),
             )
         }
     }

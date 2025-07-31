@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,8 +30,7 @@ import com.example.calculadoraimc.ui.theme.CalculadoraIMCTheme
 fun MainCard() {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = BlueColor
         ),
@@ -54,7 +54,7 @@ fun MainCard() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     IconTag(
-                        icon = Icons.Rounded.FavoriteBorder,
+                        icon = rememberVectorPainter(Icons.Rounded.FavoriteBorder),
                         contentDescription = "Icone superior"
                     )
                     Text(
@@ -97,7 +97,7 @@ fun MainCard() {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                IMCGraphic(29.9f)
+                IMCGraphic(19.9f)
             }
         }
     }

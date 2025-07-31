@@ -12,7 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -21,7 +22,7 @@ import com.example.calculadoraimc.ui.theme.WhiteTag
 
 @Composable
 fun IconTag(
-    icon: ImageVector,
+    icon: Painter,
     contentDescription: String,
     circleColor: Color = WhiteTag,
     iconColor: Color = Color.Black,
@@ -37,7 +38,7 @@ fun IconTag(
         contentAlignment = Alignment.Center
     ) {
         Icon(
-            imageVector = icon,
+            painter = icon,
             contentDescription = contentDescription,
             modifier = Modifier.size(iconSize),
             tint = iconColor
@@ -50,7 +51,7 @@ fun IconTag(
 private fun IconTagPreview() {
     CalculadoraIMCTheme {
         IconTag(
-            icon = Icons.Rounded.FavoriteBorder,
+            icon = rememberVectorPainter(Icons.Rounded.FavoriteBorder),
             contentDescription = "Favorite icon"
         )
     }

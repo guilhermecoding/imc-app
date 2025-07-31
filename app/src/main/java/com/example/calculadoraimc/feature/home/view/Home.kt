@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.calculadoraimc.feature.home.components.MetricCard
+import com.example.calculadoraimc.feature.home.model.MetricCardData
 import com.example.calculadoraimc.ui.theme.CalculadoraIMCTheme
 
 @Composable
@@ -26,15 +27,21 @@ fun Home() {
         ) {
             MainCard()
 
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(28.dp))
 
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                MetricCard(Modifier.weight(1f))
-                MetricCard(Modifier.weight(1f))
+                MetricCard(
+                    Modifier.weight(1f),
+                    type = MetricCardData.Height(3f),
+                )
+                MetricCard(
+                    Modifier.weight(1f),
+                    type = MetricCardData.Weight(5f),
+                )
             }
         }
     }

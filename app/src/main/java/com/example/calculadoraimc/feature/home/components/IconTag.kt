@@ -25,8 +25,8 @@ fun IconTag(
     contentDescription: String,
     circleColor: Color = WhiteTag,
     iconColor: Color = Color.Black,
-    circleSize: Dp = 44.dp,
-    iconSize: Dp = 24.dp
+    circleSize: Dp = 40.dp,
+    iconSize: Dp = 20.dp
 ) {
     // Circulo
     Box(

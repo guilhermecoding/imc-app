@@ -40,7 +40,7 @@ fun MainCard() {
     ) {
         Row(
             modifier = Modifier
-                .padding(horizontal = 20.dp, vertical = 32.dp)
+                .padding(20.dp, 24.dp, 20.dp, 40.dp)
                 .fillMaxWidth()
         ) {
             // PRIMEIRA COLUNA
@@ -67,10 +67,10 @@ fun MainCard() {
                     )
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "91%",
+                    text = "17.9",
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 56.sp
@@ -89,11 +89,15 @@ fun MainCard() {
             // SEGUNDA COLUNA
             Column(
                 modifier = Modifier
-                    .padding(start = 8.dp),
+                    .padding(start = 8.dp)
+                    .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                IMCGraphic()
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                IMCGraphic(29.9f)
             }
         }
     }

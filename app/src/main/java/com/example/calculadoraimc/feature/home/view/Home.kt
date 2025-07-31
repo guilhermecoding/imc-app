@@ -18,13 +18,11 @@ import com.example.calculadoraimc.ui.theme.CalculadoraIMCTheme
 
 @Composable
 fun Home() {
-    Scaffold(
-        modifier = Modifier
-            .padding(horizontal = 16.dp)
-    ) { paddingValues ->
+    Scaffold { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
+                .padding(horizontal = 16.dp)
         ) {
             MainCard()
 

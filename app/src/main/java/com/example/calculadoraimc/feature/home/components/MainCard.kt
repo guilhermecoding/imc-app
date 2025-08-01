@@ -22,12 +22,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.calculadoraimc.feature.home.components.IMCGraphic
 import com.example.calculadoraimc.feature.home.components.IconTag
+import com.example.calculadoraimc.feature.home.model.IMCData
 import com.example.calculadoraimc.ui.theme.BlackFont
 import com.example.calculadoraimc.ui.theme.BlueColor
 import com.example.calculadoraimc.ui.theme.CalculadoraIMCTheme
 
 @Composable
-fun MainCard() {
+fun MainCard(result: IMCData) {
     Card(
         modifier = Modifier
             .fillMaxWidth(),
@@ -70,7 +71,7 @@ fun MainCard() {
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "17.9",
+                    text = result.value,
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 56.sp
@@ -79,7 +80,7 @@ fun MainCard() {
                 )
 
                 Text(
-                    text = "Peso normal",
+                    text = result.text,
                     style = MaterialTheme.typography.bodyLarge.copy(
                         fontSize = 24.sp
                     )
@@ -97,7 +98,7 @@ fun MainCard() {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                IMCGraphic(19.9f)
+                IMCGraphic(result.valueLiteral)
             }
         }
     }
@@ -108,6 +109,6 @@ fun MainCard() {
 @Composable
 private fun MainCardPreview() {
     CalculadoraIMCTheme {
-        MainCard()
+        MainCard(IMCData("44.4", "Teste", 0.0))
     }
 }

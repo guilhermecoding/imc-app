@@ -10,6 +10,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -32,12 +33,12 @@ import com.example.calculadoraimc.ui.theme.CalculadoraIMCTheme
  */
 @Composable
 fun IMCGraphic(
-    imcValue: Float
+    imcValue: Double
 ) {
+    var percentValue by remember { mutableDoubleStateOf(0.0) }
+    percentValue = (if (imcValue >= 40.0) 40.0 else imcValue) / 40.0
 
-    val percentValue = (if (imcValue >= 40f) 40f else imcValue) / 40f
-    var speed by remember { mutableFloatStateOf(0f) }
-    val animationProgress = remember { Animatable(0f) }
+    var animationProgress = remember { Animatable(0f) }
 
     val statusIMCGraphic: IMCGraphicStatus = when {
         imcValue < 18.5f -> statusGraphic["atencao"]!!
@@ -47,12 +48,12 @@ fun IMCGraphic(
         else -> error("IMC invalido")
     }
 
-    LaunchedEffect(speed) {
+    LaunchedEffect(imcValue) {
+        animationProgress.snapTo(0f) // reseta
         animationProgress.animateTo(
-            targetValue = speed / 1f,
+            targetValue = percentValue.toFloat(),
             animationSpec = tween(durationMillis = 1000, easing = FastOutSlowInEasing)
         )
-        speed = percentValue
     }
 
     BoxWithConstraints(
@@ -128,7 +129,7 @@ private fun IMCGraphicPreview() {
                 .background(BlueColor)
         ) {
             IMCGraphic(
-                imcValue = 17.9f
+                imcValue = 17.9
             )
         }
     }
